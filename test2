@@ -1,0 +1,340 @@
+<html lang="en">
+<head>
+    <title>Complete Your Payment - Cadbury World Demo</title>
+
+    <style>
+    /** body font for everybody **/
+    @import url('https://fonts.googleapis.com/css2?display=swap&family=Open+Sans:wght@400');
+    @import url('https://fonts.googleapis.com/css2?display=swap&family=Open+Sans:wght@700');
+
+    /** title font if from google fonts **/
+    
+
+    
+    body {
+        margin: 0;
+        padding: 0;
+
+        background-color: #9D80C2;
+
+        
+        color: #111111;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    h1, .h1 {
+        margin: 0 0 10px 0;
+        padding: 0;
+
+        color: #D6AA25;
+        font-size: 20px;
+        line-height: 1;
+
+        
+                font-family: 'grilcb', sans-serif;
+        font-weight: 500;
+            }
+
+    h2, .h2 {
+        margin: 0 0 10px 0;
+        padding: 0;
+
+        color: #D6AA25;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: bold;
+    }
+
+    p, .p {
+        padding: 0;
+        margin: 0;
+    }
+
+    a.return-to-basket {
+        font-size: 12px;
+        line-height: 1.6;
+        color: #D6AA25!important;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 5px 10px;
+        margin: -5px -10px;
+    }
+
+    a.return-to-basket::before {
+        content: '< ';
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100%;
+
+        display: table;
+        text-align: center;
+    }
+
+    .container__cell {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    @media screen and (min-width: 600px) {
+        .container__cell {
+            vertical-align: middle;
+        }
+    }
+
+    .contentBox {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+        background-color: #FFFFFF;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+    }
+
+    .contentBox__head {
+        background-color: #380082;
+        
+        padding: 20px;
+    }
+
+    .contentBox__head .contentBox__head__logo {
+        height: 50px;
+        width: auto;
+    }
+
+    @media screen and (min-width: 600px) {
+        .contentBox__head {
+            padding: 20px 30px;
+        }
+
+        .contentBox__head .contentBox__head__logo {
+            height: 120px;
+        }
+    }
+
+    .contentBox__details {
+        padding: 20px;
+        border-bottom: 1px dashed #E5E5E5;
+    }
+
+    .contentBox__details__details {
+        font-size: 12px;
+    }
+
+    .contentBox__details__balance {
+        font-weight: bold;
+    }
+
+    @media screen and (min-width: 600px) {
+        .contentBox__details {
+            padding: 20px 30px;
+            display: table;
+        }
+
+        .contentBox__details__title {
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        .contentBox__details__details {
+            display: table-cell;
+            vertical-align: middle;
+            width: auto;
+            min-width: 200px;
+        }
+    }
+
+    .contentBox__form {
+        padding: 20px;
+    }
+
+    @media screen and (min-width: 600px) {
+        .contentBox__form {
+            padding: 20px 30px;
+        }
+    }
+
+    .contentBox__footer {
+        background-color: #E5E5E5;
+        padding: 20px;
+    }
+
+    @media screen and (min-width: 600px) {
+        .contentBox__footer {
+            padding: 20px 30px;
+        }
+    }
+
+    .payment-form, .payment-form fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+    }
+
+    .payment-form #_card_container_row1, .payment-form #_card_container_row2 {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .payment-form #_card_container_row2 {
+        display: table;
+        width: 100%;
+    }
+
+    .payment-form label {
+        border: none!important;
+        padding: 0!important;
+        margin: 0!important;
+
+        font-size: 12px!important;
+        line-height: 1.6;
+        font-weight: bold;
+    }
+
+    @media screen and (min-width: 600px) {
+        .payment-form label {
+            font-size: 14px;
+        }
+    }
+
+    .payment-form input[type=text] {
+        margin: 0;
+        padding: 20px;
+
+        border: 1px solid #E5E5E5;
+
+        background-color: #FFFFFF;
+
+        font-size: 14px;
+        font-weight: normal;
+        color: #111111;
+    }
+
+    .payment-form input[type=text]:focus {
+        border-color: #999999;
+    }
+
+    .payment-form input[type=text]:disabled {
+        background-color: #E5E5E5;
+    }
+
+    .payment-form #_card_container_row2 label {
+        display: table-cell!important;
+        vertical-align: top;
+        width: calc(50% - 5px)!important;
+    }
+
+    .payment-form #_card_container_row2 label#_expiry_label {
+        padding-right: 10px!important;
+    }
+
+    .payment-form label#_card_number_label::before,
+    .payment-form label#_expiry_label::before,
+    .payment-form label#_cvv_label::before {
+        display: block;
+        font-size: 12px;
+        line-height: 1;
+        padding-bottom: 10px;
+    }
+
+    @media screen and (min-width: 600px) {
+        .payment-form label#_card_number_label::before,
+        .payment-form label#_expiry_label::before,
+        .payment-form label#_cvv_label::before {
+            font-size: 14px;
+        }
+    }
+
+    .payment-form label#_card_number_label::before {
+        content: 'Card Number';
+    }
+
+    .payment-form label#_expiry_label::before {
+        content: 'Expiry Date';
+    }
+
+    .payment-form label#_cvv_label::before {
+        content: 'Security Code';
+    }
+
+    .payment-form input#_submit_button {
+        font-size: 14px;
+        font-weight: bold;
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 14px;
+        border: none;
+        background-color: #D6AA25;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    .payment-form input#_submit_button:disabled {
+        background-color: #666666;
+        color: #FFFFFF;
+        cursor: not-allowed;
+    }
+
+    .payment-form #_alert_container {
+        margin-top: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /** reposition the card overlays that are added to the form */
+    span#_card_number_span, span.jc-cardNumberSpan {
+        top: 45%!important;
+    }
+    span#_cvv_span, span.jc-cvvSpan {
+        top: 67%!important;
+    }
+</style>
+
+    </head>
+<body>
+<div>
+
+    <div class="container">
+        <div class="container__cell">
+
+            <div class="contentBox">
+
+                <div class="contentBox__head">
+                </div>
+
+                <div class="contentBox__details">
+                    <h1 class="contentBox__details__title">
+                        Payment Details
+                    </h1>
+                    <div class="contentBox__details__details">
+                        <p><span id="customer_first_name"></span> <span id="customer_last_name"></span></p>
+                        <p>Outstanding Balance: <span id="amount" class="contentBox__details__balance"></span></p>
+                    </div>
+                </div>
+
+                <div class="contentBox__form">
+                                        <form id="payment_fieldset" class="payment-form">
+
+                        
+                    </form>
+                </div>
+
+                <div class="contentBox__footer">
+                    <h2>Security</h2>
+                    <p>Your security is very important to us. These pages are hosted on a secure server which encrypts all sensitive data.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
